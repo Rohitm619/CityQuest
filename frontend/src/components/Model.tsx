@@ -1,7 +1,8 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "./Loader";
-import Building from "../models/Building";
+// import Building from "../models/Building";
+// import Building from "../models/Building";
 
 function Model() {
   const adjustBuildingForScreenSize = () => {
@@ -34,11 +35,11 @@ function Model() {
           <spotLight />
           <hemisphereLight />
 
-          <Building
+          {/* <Building
             position={buildingPosition}
             scale={buildingScale}
             rotation={buildingRotation}
-          />
+          /> */}
         </Suspense>
       </Canvas>
     </div>
