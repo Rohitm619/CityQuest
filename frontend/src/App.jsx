@@ -11,11 +11,6 @@ function App() {
     <>
       <div>
         <Model />
-        <h1>City Quest</h1>
-        <h4>
-          City quest is the gammified application which shows residential
-          societies ranks based on various factors
-        </h4>
       </div>
     </>
   );
