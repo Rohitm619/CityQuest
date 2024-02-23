@@ -57,7 +57,7 @@ function Model() {
             scale={planeScale}
           /> */}
           <Building
-            isCars={false}
+            isCars={true}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
