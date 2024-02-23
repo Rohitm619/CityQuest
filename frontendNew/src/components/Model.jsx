@@ -15,7 +15,7 @@ function Model() {
     if (window.innerWidth < 786) {
       screenScale = [0.9, 0.9, 0.9];
     } else {
-      screenScale = [0.8, 1, 1];
+      screenScale = [0.8, 1, 0.5];
     }
 
     return [screenScale, screenPosition, rotation];
@@ -58,6 +58,7 @@ function Model() {
           /> */}
           <Building
             isCars={true}
+            isBench={true}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}

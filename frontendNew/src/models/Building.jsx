@@ -4,6 +4,8 @@ import residentialComplex from "../assets/residentialComplex.glb";
 import { a } from "@react-spring/three";
 import { useFrame, useThree } from "@react-three/fiber";
 import cars from "../assets/cars.glb";
+import bench from "../assets/bench.glb";
+import parkingLot from "../assets/parking_lot.glb";
 
 export function Building({
   isRotating,
@@ -11,6 +13,7 @@ export function Building({
   setCurrentStage,
   currentFocusPoint,
   isCars,
+  isBench,
   ...props
 }) {
   const { nodes, materials } = useGLTF(residentialComplex);
@@ -165,18 +168,70 @@ export function Building({
     }
   });
 
-  const { scene } = useGLTF(cars);
+  const { scene: carScene } = useGLTF(cars);
+  const { scene: benchScene } = useGLTF(bench);
+  const { scene: parkingLotScene } = useGLTF(parkingLot);
   return (
     <a.group {...props} ref={islandRef} dispose={null}>
       <group scale={0.01}>
         {isCars ? (
           <mesh
+            castShadow
+            receiveShadow
             position={[-26.459, 250.394, 1500.042]}
             rotation={[6.2, 0, 0]}
             scale={[19.865, 17.155, 15.939]}
           >
-            <primitive object={scene} />
+            <primitive object={carScene} />
           </mesh>
+        ) : (
+          ""
+        )}
+
+        {true ? (
+          <mesh
+            castShadow
+            receiveShadow
+            position={[2760, 190, -550]}
+            rotation={[0, -1.575, 0]}
+            scale={[590.865, 570.155, 500.939]}
+          >
+            <primitive object={parkingLotScene} />
+          </mesh>
+        ) : (
+          ""
+        )}
+
+        {isBench ? (
+          <a.group>
+            <mesh
+              castShadow
+              receiveShadow
+              position={[-1460.459, 250.394, 0]}
+              rotation={[0, 0, 0]}
+              scale={[0.05, 0.05, 0.05]}
+            >
+              <primitive object={benchScene.clone()} />
+            </mesh>
+            <mesh
+              castShadow
+              receiveShadow
+              position={[1360.459, 250.394, 0]}
+              rotation={[0, 3.1, 0]}
+              scale={[0.05, 0.05, 0.05]}
+            >
+              <primitive object={benchScene.clone()} />
+            </mesh>
+            <mesh
+              castShadow
+              receiveShadow
+              position={[1360.459, 250.394, 300]}
+              rotation={[0, 3.1, 0]}
+              scale={[0.05, 0.05, 0.05]}
+            >
+              <primitive object={benchScene.clone()} />
+            </mesh>
+          </a.group>
         ) : (
           ""
         )}
