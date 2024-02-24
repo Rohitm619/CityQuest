@@ -39,8 +39,8 @@ function Model() {
 
   const [planeScale, planePosition, planeRotation] = adjustPlaneForScreenSize();
   return (
-    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-screen w-[100%]">
-      <Canvas camera={{ near: 0.1, far: 1000 }} className="h-[95%]">
+    <div className="bg-transparent h-[100%] w-[100%]">
+      <Canvas camera={{ near: 0.1, far: 1000 }} className="">
         <Suspense>
           <directionalLight />
           <ambientLight />
@@ -59,6 +59,8 @@ function Model() {
           <Building
             isCars={true}
             isBench={true}
+            isParkingLot={true}
+            isSwimmingPool={true}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}

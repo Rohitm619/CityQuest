@@ -6,6 +6,8 @@ import { useFrame, useThree } from "@react-three/fiber";
 import cars from "../assets/cars.glb";
 import bench from "../assets/bench.glb";
 import parkingLot from "../assets/parking_lot.glb";
+import swimmingPool from "../assets/giant_swimming_pool.glb";
+import cloud from "../assets/cloud_test.glb";
 
 export function Building({
   isRotating,
@@ -14,6 +16,8 @@ export function Building({
   currentFocusPoint,
   isCars,
   isBench,
+  isParkingLot,
+  isSwimmingPool,
   ...props
 }) {
   const { nodes, materials } = useGLTF(residentialComplex);
@@ -171,6 +175,9 @@ export function Building({
   const { scene: carScene } = useGLTF(cars);
   const { scene: benchScene } = useGLTF(bench);
   const { scene: parkingLotScene } = useGLTF(parkingLot);
+  const { scene: swimmingPoolScene } = useGLTF(swimmingPool);
+  const { scene: cloudScene } = useGLTF(cloud);
+
   return (
     <a.group {...props} ref={islandRef} dispose={null}>
       <group scale={0.01}>
@@ -197,6 +204,34 @@ export function Building({
             scale={[590.865, 570.155, 500.939]}
           >
             <primitive object={parkingLotScene} />
+          </mesh>
+        ) : (
+          ""
+        )}
+
+        {true ? (
+          <mesh
+            castShadow
+            receiveShadow
+            position={[-500, 190, -3000]}
+            rotation={[0, 1.6, 0]}
+            scale={[10, 10, 10]}
+          >
+            <primitive object={swimmingPoolScene} />
+          </mesh>
+        ) : (
+          ""
+        )}
+
+        {true ? (
+          <mesh
+            castShadow
+            receiveShadow
+            position={[-500, 190, -3000]}
+            rotation={[0, 1.6, 0]}
+            scale={[10, 10, 10]}
+          >
+            <primitive object={cloudScene} />
           </mesh>
         ) : (
           ""
