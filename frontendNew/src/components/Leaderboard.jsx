@@ -67,12 +67,12 @@ const Leaderboard = (props) => {
           content="Leaderboard - Regular Immaterial Pheasant"
         />
       </Helmet>
-      <div className="leaderboard-header">
-        <Header />
-      </div>
+      <div className="leaderboard-header"></div>
       <div className="leaderboard-leaderboard flex text-black h-[85vh]">
-        <div className="w-[72%] h-[85vh]">
-          <Model selectedSociety={selectedSociety} />
+        <div className="w-[72%] h-[85vh] rotationContainer">
+          <div className="mesh h-[100%]">
+            <Model selectedSociety={selectedSociety} />
+          </div>
         </div>
         <div className="w-[28%] bg-[var(--dl-color-custom-neutral-dark)] gap-2 flex flex-column overflow-scroll hideScrollbar h-[85vh]">
           <div className="text-center w-inline text-2xl text-white m-3 py-2 rounded">
@@ -84,15 +84,16 @@ const Leaderboard = (props) => {
               rank={index + 1}
               item={item}
               setSelectedSociety={setSelectedSociety}
+              selectedSociety={selectedSociety}
             />
           ))}
         </div>
       </div>
       <div className="leaderboard-footer">
-        <footer className="leaderboard-footer1 footerContainer">
+        <footer className="leaderboard-footer1 footerContainer ">
           <div className="leaderboard-separator"></div>
           <div className="leaderboard-container3">
-            <span className="bodySmall leaderboard-text6">
+            <span className="bodySmall leaderboard-text6  text-white">
               © 2023 CityQuest, All Rights Reserved.
             </span>
             <div className="leaderboard-icon-group1">

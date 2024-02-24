@@ -15,7 +15,7 @@ const Home = (props) => {
         <title>Regular Immaterial Pheasant</title>
         <meta property="og:title" content="Regular Immaterial Pheasant" />
       </Helmet>
-      <Header />
+
       <div className="home-hero">
         <div className="heroContainer home-hero1">
           <h1 className="home-hero-heading heading1">Join the CityQuest</h1>

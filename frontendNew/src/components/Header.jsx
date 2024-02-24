@@ -3,15 +3,17 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="home-header shadow-md	shadow-gray-700">
+    <div className="home-header shadow-md	shadow-gray-700 text-white">
       <header
         data-thq="thq-navbar"
         className="navbarContainer home-navbar-interactive"
       >
         <a className="home-logo logo">CITYQUEST</a>
         <div data-thq="thq-navbar-nav" className="home-desktop-menu">
-          <nav className="home-links">
-            <Link className="home-nav12 bodySmall">Home</Link>
+          <nav className="home-links text-white">
+            <Link to="/" className="home-nav12 bodySmall text-white">
+              Home
+            </Link>
             <a className="home-nav32 bodySmall">CityQuest Activities</a>
             <Link to="/leaderboard" className="home-nav42 bodySmall">
               Leaderboard

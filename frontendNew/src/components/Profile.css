@@ -2,10 +2,7 @@
   box-sizing: border-box;
   color: black;
 }
-input[type="text"],
-input[type="number"],
-select,
-textarea {
+.inputTextNumSelectArea {
   width: 100%;
   padding: 12px;
   border: 0.5px solid black;
