@@ -231,7 +231,7 @@ export function Building({
           <mesh
             castShadow
             receiveShadow
-            position={[-1400, 250, -3400]}
+            position={[-1300, 250, -2700]}
             rotation={[0, 0, 0]}
             scale={[600, 320, 400]}
           >
