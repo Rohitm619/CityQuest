@@ -5,10 +5,13 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FeatureCard from "./components/FeatureCard";
 import Leaderboard from "./components/Leaderboard";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+
 
 function App() {
   return (
@@ -17,6 +20,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </div>
