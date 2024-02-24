@@ -1,8 +1,11 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import luna_park_grass_field from "../assets/luna_park_grass_field.glb";
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF("/luna_park_grass_field.glb");
+
+
+export default function GrassField(props){
+  const { nodes, materials } = useGLTF(luna_park_grass_field);
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -18,4 +21,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/luna_park_grass_field.glb");
+useGLTF.preload(luna_park_grass_field);

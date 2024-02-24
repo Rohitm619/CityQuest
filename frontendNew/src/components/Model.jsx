@@ -71,6 +71,7 @@ function Model({ selectedSociety }) {
             isSwimmingPool={selectedSociety.isSwimmingPool}
             isTemple={selectedSociety.isTemple}
             isRotating={isRotating}
+            isDustbin={true}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
             position={islandPosition}
