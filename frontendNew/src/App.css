@@ -81,6 +81,11 @@
 .teleport-show {
   display: flex !important;
 }
+
+* {
+  font-family: Bricolage Grotesque;
+}
+
 .buttonFilled {
   color: var(--dl-color-custom-neutral-dark);
   transition: 0.3s;
@@ -841,7 +846,7 @@
 }
 .leaderboard-header {
   width: 100%;
-  height: 97px;
+  height: 16vh;
   display: flex;
   align-items: flex-start;
 }
@@ -967,7 +972,6 @@
 }
 .leaderboard-leaderboard {
   width: 100%;
-  height: 450px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;

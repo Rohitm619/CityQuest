@@ -1,11 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Model from "./Model";
 import LeaderboardRankCard from "./LeaderboardRankCard";
 
+const societies = [
+  {
+    name: "Pune Ville",
+    address: "Pune, Maharashtra, India",
+    isCars: true,
+    isTemple: false,
+    isSwimmingPool: true,
+    isBench: true,
+  },
+  {
+    name: "Life Republic",
+    address: "Pune, Maharashtra, India",
+    isCars: false,
+    isTemple: true,
+    isSwimmingPool: true,
+    isBench: false,
+  },
+  {
+    name: "Joy Ville",
+    address: "Pune, Maharashtra, India",
+    isCars: true,
+    isTemple: false,
+    isSwimmingPool: true,
+    isBench: false,
+  },
+  {
+    name: "Blue Ridge",
+    address: "Pune, Maharashtra, India",
+    isCars: false,
+    isTemple: true,
+    isSwimmingPool: false,
+    isBench: true,
+  },
+];
+
 const Leaderboard = (props) => {
+  const [selectedSociety, setSelectedSociety] = useState({
+    name: "Pune Ville",
+    address: "Pune, Maharashtra, India",
+    isCars: true,
+    isTemple: false,
+    isSwimmingPool: true,
+    isBench: true,
+  });
+
   return (
     <div className="leaderboard-container">
       <Helmet>
@@ -18,24 +62,26 @@ const Leaderboard = (props) => {
       <div className="leaderboard-header">
         <Header />
       </div>
-      <div className="leaderboard-leaderboard bg-gradient-to-r from-cyan-500 to-blue-500">
-        <div className="leaderboard-buildings">
-          <Model />
+      <div className="leaderboard-leaderboard flex text-black h-[85vh]">
+        <div className="w-[72%] h-[85vh] bg-green-200">
+          <Model selectedSociety={selectedSociety} />
         </div>
-        <div className="leaderboard-rankings overflow-scroll">
-          <LeaderboardRankCard />
-          <LeaderboardRankCard />
-          <LeaderboardRankCard />
-          <LeaderboardRankCard />
+        <div className="w-[28%] bg-[var(--dl-color-custom-neutral-dark)] gap-2 flex flex-column overflow-scroll h-[85vh]">
+          <div className="text-center w-inline text-2xl text-white m-3 py-2 rounded">
+            <h3>Leaderboard Ranking</h3>
+          </div>
+          {societies.map((item, index) => (
+            <LeaderboardRankCard
+              key={index}
+              rank={index + 1}
+              item={item}
+              setSelectedSociety={setSelectedSociety}
+            />
+          ))}
         </div>
       </div>
       <div className="leaderboard-footer">
         <footer className="leaderboard-footer1 footerContainer">
-          <div className="leaderboard-container2">
-            <Link to="/" className="leaderboard-logo2 logo">
-              CITYQUEST
-            </Link>
-          </div>
           <div className="leaderboard-separator"></div>
           <div className="leaderboard-container3">
             <span className="bodySmall leaderboard-text6">

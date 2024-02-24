@@ -198,7 +198,7 @@ export function Building({
           ""
         )}
 
-        {true ? (
+        {isParkingLot ? (
           <mesh
             castShadow
             receiveShadow
@@ -212,7 +212,7 @@ export function Building({
           ""
         )}
 
-        {true ? (
+        {isTemple ? (
           <mesh
             castShadow
             receiveShadow
@@ -226,7 +226,7 @@ export function Building({
           ""
         )}
 
-        {true ? (
+        {isSwimmingPool ? (
           <mesh
             castShadow
             receiveShadow
@@ -235,20 +235,6 @@ export function Building({
             scale={[10, 10, 10]}
           >
             <primitive object={swimmingPoolScene} />
-          </mesh>
-        ) : (
-          ""
-        )}
-
-        {true ? (
-          <mesh
-            castShadow
-            receiveShadow
-            position={[-500, 190, -3000]}
-            rotation={[0, 1.6, 0]}
-            scale={[10, 10, 10]}
-          >
-            <primitive object={cloudScene} />
           </mesh>
         ) : (
           ""
