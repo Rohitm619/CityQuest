@@ -19,6 +19,7 @@
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.99.0",
     "@react-three/fiber": "^8.15.16",
+    "ldrs": "^1.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
