@@ -20,22 +20,6 @@ function Model({ selectedSociety }) {
     return number + 0.001;
   }
 
-  useEffect(() => {
-    const animate = () => {
-      num = getNumber(num);
-      console.log(num);
-      if (isRotating && buildingRef.current) {
-        console.log("in the block");
-        buildingRef.current.rotation.y += 0.01;
-      }
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {};
-  }, [isRotating, num]);
-
   const adjustBuildingForScreenSize = () => {
     let screenScale;
     let screenPosition = [-10, -10, -30];

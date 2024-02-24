@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../components/Profile.css";
 
+import { Button } from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
+
 const Profile = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -17,13 +20,51 @@ const Profile = () => {
     // Handle form submission here
   };
 
-  return (
-    <div className="background">
-      <div className="container">
-        <h1 className="heading">Society Profile</h1>
-        <form onSubmit={handleSubmit}>
+  const buttons = (
+    <div className="my-5 flex justify-between ">
+      {currentPage > 1 && (
+        <Button
+          variant="contained"
+          className="mr-auto"
+          size="medium"
+          onClick={previousPage}
+        >
+          Previous
+        </Button>
+      )}
+      {currentPage < 3 && (
+        <Button
+          variant="contained"
+          className="ml-auto"
+          size="medium"
+          onClick={nextPage}
+        >
+          Next
+        </Button>
+      )}
+      {currentPage === 3 && (
+        <Button
+          variant="contained"
+          className="ml-auto"
+          size="medium"
+          type="submit"
+          endIcon={<SendIcon />}
+        >
+          Submit
+        </Button>
+      )}
+    </div>
+  );
 
-        <div
+  return (
+    <div className="background w-screen">
+      <div className="container-fluid bg-gradient-to-r from-slate-900 to-slate-700 p-[3vw]">
+        <div className="text-center w-inline text-3xl font-bold text-white py-2 rounded mt-[20vh] mb-5">
+          <h3>- Society Profile -</h3>
+        </div>
+        <form onSubmit={handleSubmit}>
+          {buttons}
+          <div
             className="row"
             style={{ display: currentPage === 1 ? "block" : "none" }}
           >
@@ -46,7 +87,7 @@ const Profile = () => {
             style={{ display: currentPage === 1 ? "block" : "none" }}
           >
             <div className="col-25">
-              <label  for="ChairpersonName">Chairperson Name</label>
+              <label for="ChairpersonName">Chairperson Name</label>
             </div>
             <div className="col-75">
               <input
@@ -58,13 +99,12 @@ const Profile = () => {
               />
             </div>
           </div>
-
           <div
             className="row"
             style={{ display: currentPage === 1 ? "block" : "none" }}
           >
             <div className="col-25">
-              <label  for="Address">Address</label>
+              <label for="Address">Address</label>
             </div>
             <div className="col-75">
               <input
@@ -213,7 +253,6 @@ const Profile = () => {
               />
             </div>
           </div>
-
           <div
             className="row"
             style={{ display: currentPage === 2 ? "block" : "none" }}
@@ -471,31 +510,7 @@ const Profile = () => {
             </div>
           </div>
           <br />
-          <div className="buttons">
-            {currentPage > 1 && (
-              <button
-                className="default-button"
-                type="button"
-                onClick={previousPage}
-              >
-                Previous
-              </button>
-            )}
-            {currentPage < 3 && (
-              <button
-                className="default-button"
-                type="button"
-                onClick={nextPage}
-              >
-                Next
-              </button>
-            )}
-            {currentPage === 3 && (
-              <button className="default-button" type="submit">
-                Submit
-              </button>
-            )}
-          </div>
+          {buttons}
         </form>
       </div>
     </div>
