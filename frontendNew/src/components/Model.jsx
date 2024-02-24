@@ -70,6 +70,7 @@ function Model() {
             isBench={true}
             isTemple={true}
             isRotating={isRotating}
+            isDustbin={true}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
             position={islandPosition}
