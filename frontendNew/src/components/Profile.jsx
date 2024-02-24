@@ -22,15 +22,17 @@ const Profile = () => {
       <div className="container">
         <h1 className="heading">Society Profile</h1>
         <form onSubmit={handleSubmit}>
-          <div
+
+        <div
             className="row"
             style={{ display: currentPage === 1 ? "block" : "none" }}
           >
-            <div className="col-25 left">
-              <label htmlFor="Societyname">Society Name</label>
+            <div className="col-25">
+              <label for="Societyname">Society Name</label>
             </div>
             <div className="col-75">
               <input
+                className="inputTextNumSelectArea"
                 type="text"
                 id="Societyname"
                 name="Societyname"
@@ -44,7 +46,7 @@ const Profile = () => {
             style={{ display: currentPage === 1 ? "block" : "none" }}
           >
             <div className="col-25">
-              <label for="ChairpersonName">Chairperson Name</label>
+              <label  for="ChairpersonName">Chairperson Name</label>
             </div>
             <div className="col-75">
               <input
@@ -62,10 +64,11 @@ const Profile = () => {
             style={{ display: currentPage === 1 ? "block" : "none" }}
           >
             <div className="col-25">
-              <label htmlFor="Address">Address</label>
+              <label  for="Address">Address</label>
             </div>
             <div className="col-75">
               <input
+                className="inputTextNumSelectArea"
                 type="text"
                 id="Address"
                 name="Address"
