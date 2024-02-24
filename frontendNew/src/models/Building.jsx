@@ -9,7 +9,8 @@ import parkingLot from "../assets/parking_lot.glb";
 import swimmingPool from "../assets/giant_swimming_pool.glb";
 import cloud from "../assets/cloud_test.glb";
 import temple from "../assets/hindu_temple.glb";
-
+import grass from "../assets/luna_park_grass_field.glb";
+import dustbin from "../assets/dustbin.glb";
 export function Building({
   isRotating,
   setIsRotating,
@@ -20,6 +21,8 @@ export function Building({
   isParkingLot,
   isSwimmingPool,
   isTemple,
+  isGrassField,
+  isDustbin,
   ...props
 }) {
   const { nodes, materials } = useGLTF(residentialComplex);
@@ -177,10 +180,12 @@ export function Building({
   const { scene: carScene } = useGLTF(cars);
   const { scene: benchScene } = useGLTF(bench);
   const { scene: parkingLotScene } = useGLTF(parkingLot);
+  const { scene: templeScene } = useGLTF(temple);
   const { scene: swimmingPoolScene } = useGLTF(swimmingPool);
+  const { scene: grassScene } = useGLTF(grass);
+  const { scene: dustbinScene } = useGLTF(dustbin);
   const { scene: cloudScene } = useGLTF(cloud);
 
-  const { scene: templeScene } = useGLTF(temple);
   return (
     <a.group {...props} ref={islandRef} dispose={null}>
       <group scale={0.01}>
@@ -198,7 +203,7 @@ export function Building({
           ""
         )}
 
-        {true ? (
+        {isParkingLot ? (
           <mesh
             castShadow
             receiveShadow
@@ -211,8 +216,40 @@ export function Building({
         ) : (
           ""
         )}
-
-        {true ? (
+        {isDustbin ? (
+          <a.group>
+            <mesh
+              castShadow
+              receiveShadow
+              position={[3500, 200, -3600]}
+              rotation={[0, 0, 0]}
+              scale={[500, 250, 300]}
+            >
+              <primitive object={dustbinScene.clone()} />
+            </mesh>
+            <mesh
+              castShadow
+              receiveShadow
+              position={[-1300, 250, -2700]}
+              rotation={[0, 0, 0]}
+              scale={[600, 320, 400]}
+            >
+              <primitive object={dustbinScene.clone()} />
+            </mesh>
+            <mesh
+              castShadow
+              receiveShadow
+              position={[4700, 200, 1700]}
+              rotation={[0, 0, 0]}
+              scale={[500, 250, 300]}
+            >
+              <primitive object={dustbinScene.clone()} />
+            </mesh>
+          </a.group>
+        ) : (
+          ""
+        )}
+        {isTemple ? (
           <mesh
             castShadow
             receiveShadow
@@ -226,7 +263,7 @@ export function Building({
           ""
         )}
 
-        {true ? (
+        {isSwimmingPool ? (
           <mesh
             castShadow
             receiveShadow
@@ -249,6 +286,19 @@ export function Building({
             scale={[10, 10, 10]}
           >
             <primitive object={cloudScene} />
+          </mesh>
+        ) : (
+          ""
+        )}
+        {true ? (
+          <mesh
+            castShadow
+            receiveShadow
+            position={[0, -1000, 0]}
+            rotation={[0, 0, 0]}
+            scale={[5000, 50, 5000]}
+          >
+            <primitive object={grassScene} />
           </mesh>
         ) : (
           ""

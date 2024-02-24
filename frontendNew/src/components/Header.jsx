@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="home-header">
+    <div className="home-header shadow-md	shadow-gray-700">
       <header
         data-thq="thq-navbar"
         className="navbarContainer home-navbar-interactive"

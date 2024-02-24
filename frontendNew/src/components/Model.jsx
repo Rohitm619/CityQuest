@@ -8,7 +8,7 @@ import Grass from "../models/Grass";
 import Sky from "../models/Sky";
 import Temple from "../models/temple";
 
-function Model() {
+function Model({ selectedSociety }) {
   const [isRotating, setIsRotating] = useState(true);
   const [currentStage, setCurrentStage] = useState(1);
   const adjustBuildingForScreenSize = () => {
@@ -65,12 +65,13 @@ function Model() {
           {/* <Temple/> */}
 
           <Building
-            isCars={true}
-            isBench={true}
+            isCars={selectedSociety.isCars}
+            isBench={selectedSociety.isBench}
             isParkingLot={true}
-            isSwimmingPool={true}
-            isTemple={true}
+            isSwimmingPool={selectedSociety.isSwimmingPool}
+            isTemple={selectedSociety.isTemple}
             isRotating={isRotating}
+            isDustbin={true}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
             position={islandPosition}

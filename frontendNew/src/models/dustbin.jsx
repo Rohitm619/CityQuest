@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import dustbin from "../assets/dustbin.glb";
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF("/dustbin.glb");
+export default function Dustbin(props) {
+  const { nodes, materials } = useGLTF(dustbin);
   return (
     <group {...props} dispose={null}>
       <group scale={0.01}>
@@ -65,4 +66,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/dustbin.glb");
+useGLTF.preload(dustbin);
