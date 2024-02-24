@@ -3,6 +3,10 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import Building from "../models/Building";
 import Cars from "../models/cars";
+import swimmingPool from "../models/swimmingPool";
+import Grass from "../models/Grass";
+import Sky from "../models/Sky";
+import Temple from "../models/temple";
 
 function Model() {
   const [isRotating, setIsRotating] = useState(true);
@@ -56,11 +60,16 @@ function Model() {
             rotation={planeRotation}
             scale={planeScale}
           /> */}
+          <Grass />
+          <Sky />
+          {/* <Temple/> */}
+
           <Building
             isCars={true}
             isBench={true}
             isParkingLot={true}
             isSwimmingPool={true}
+            isTemple={true}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}

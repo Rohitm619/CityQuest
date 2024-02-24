@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import giant_swimming_pool from "../assets/giant_swimming_pool.glb";
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF("/giant_swimming_pool.glb");
+
+export default function swimmingPool(props) {
+  const { nodes, materials } = useGLTF(giant_swimming_pool);
   return (
     <group {...props} dispose={null}>
       <group scale={0.01}>
@@ -74,4 +76,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/giant_swimming_pool.glb");
+useGLTF.preload(giant_swimming_pool);

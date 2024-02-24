@@ -8,6 +8,7 @@ import bench from "../assets/bench.glb";
 import parkingLot from "../assets/parking_lot.glb";
 import swimmingPool from "../assets/giant_swimming_pool.glb";
 import cloud from "../assets/cloud_test.glb";
+import temple from "../assets/hindu_temple.glb";
 
 export function Building({
   isRotating,
@@ -18,6 +19,7 @@ export function Building({
   isBench,
   isParkingLot,
   isSwimmingPool,
+  isTemple,
   ...props
 }) {
   const { nodes, materials } = useGLTF(residentialComplex);
@@ -178,6 +180,7 @@ export function Building({
   const { scene: swimmingPoolScene } = useGLTF(swimmingPool);
   const { scene: cloudScene } = useGLTF(cloud);
 
+  const { scene: templeScene } = useGLTF(temple);
   return (
     <a.group {...props} ref={islandRef} dispose={null}>
       <group scale={0.01}>
@@ -204,6 +207,20 @@ export function Building({
             scale={[590.865, 570.155, 500.939]}
           >
             <primitive object={parkingLotScene} />
+          </mesh>
+        ) : (
+          ""
+        )}
+
+        {true ? (
+          <mesh
+            castShadow
+            receiveShadow
+            position={[2000, 200, -3000]}
+            rotation={[0, 0, 0]}
+            scale={[120, 120, 150]}
+          >
+            <primitive object={templeScene} />
           </mesh>
         ) : (
           ""
