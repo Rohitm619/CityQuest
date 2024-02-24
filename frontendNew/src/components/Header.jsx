@@ -12,7 +12,6 @@ function Header() {
         <div data-thq="thq-navbar-nav" className="home-desktop-menu">
           <nav className="home-links">
             <Link className="home-nav12 bodySmall">Home</Link>
-            <Link to="/leaderboard">Hello</Link>
             <a className="home-nav32 bodySmall">CityQuest Activities</a>
             <Link to="/leaderboard" className="home-nav42 bodySmall">
               Leaderboard
@@ -21,8 +20,12 @@ function Header() {
           </nav>
           <input type="text" placeholder="Search" className="input" />
           <div className="home-buttons">
-            <a className="home-login buttonFlat">Login</a>
-            <button className="buttonFilled">Register</button>
+            <Link to="/login" className="home-login buttonFlat">
+              Login
+            </Link>
+            <Link to="/signup" className="buttonFilled">
+              Register
+            </Link>
           </div>
         </div>
         <div data-thq="thq-burger-menu" className="home-burger-menu">
