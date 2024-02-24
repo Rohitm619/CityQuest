@@ -2,8 +2,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 // import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -11,11 +9,25 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
+import {
+  signInWithEmailAndPassword
+} from "firebase/auth";
+import { auth } from "../firebase/firebase";
+import { getUserDetails } from "../firebase/firestore";
 
 export default function Login() {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const email = data.get('email');
+    const password = data.get('password');
+    try {
+      const signedInUser = await signInWithEmailAndPassword(auth, email, password);
+      const userDetails = await getUserDetails(signedInUser.user.uid);
+      console.log("User is signed in", userDetails);
+    } catch (err) {
+      console.error(err);
+    }
     console.log({
       email: data.get("email"),
       password: data.get("password"),
