@@ -8,9 +8,6 @@ const Loader = ({ progress }) => {
     <Html>
       <div className="flex justify-center items-center">
         <l-quantum size="45" speed="1.75" color="black"></l-quantum>
-        <p className="text-white text-lg font-semibold">
-          {progress.toFixed(2)}%
-        </p>
       </div>
     </Html>
   );

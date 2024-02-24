@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -8,13 +9,17 @@ import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { getUserDetails } from "../firebase/firestore";
+import Alert from "@mui/material/Alert";
 
 export default function Login() {
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const email = data.get("email");
     const password = data.get("password");
+
     try {
       const signedInUser = await signInWithEmailAndPassword(
         auth,
@@ -23,8 +28,15 @@ export default function Login() {
       );
       const userDetails = await getUserDetails(signedInUser.user.uid);
       console.log("User is signed in", userDetails);
+      setShowSuccessAlert(true);
+      setTimeout(() => {
+        setShowSuccessAlert(false);
+      }, 2000);
     } catch (err) {
-      console.error(err);
+      setShowErrorAlert(true);
+      setTimeout(() => {
+        setShowErrorAlert(false);
+      }, 2000);
     }
     console.log({
       email: data.get("email"),
@@ -33,8 +45,8 @@ export default function Login() {
   };
 
   return (
-    <div className="container-fluid bg-gradient-to-r from-slate-900 to-slate-700 p-[3vw]">
-      <Container component="main" maxWidth="xm">
+    <div className="container-fluid bg-gradient-to-r from-slate-900 to-slate-700 p-[8vw]">
+      <Container component="main" maxWidth="xm" className="mb-5">
         <CssBaseline />
         <Box
           sx={{
@@ -44,7 +56,24 @@ export default function Login() {
             alignItems: "center",
           }}
         >
-          <div className="text-center w-inline text-3xl font-bold text-white py-2 rounded mt-[20vh] mb-5">
+          <div className="mt-[5vh] mb-3 fixed right-10 top-20">
+            {showSuccessAlert ? (
+              <Alert variant="filled" severity="success">
+                User Signed in!
+              </Alert>
+            ) : (
+              ""
+            )}
+
+            {showErrorAlert ? (
+              <Alert variant="filled" severity="error">
+                Invalid Credentials
+              </Alert>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="text-center w-inline text-3xl font-bold text-white pb-2 rounded pb-5">
             <h3>Login</h3>
           </div>
           <Box

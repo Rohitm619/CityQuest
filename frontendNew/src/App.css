@@ -50,6 +50,15 @@
   background-color: var(--dl-color-gray-white);
 }
 
+.glassEffect {
+  backdrop-filter: blur(1px) saturate(101%);
+  -webkit-backdrop-filter: blur(1px) saturate(101%);
+  background-color: rgba(17, 25, 40, 0.26);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 20px;
+}
+
 .input {
   color: var(--dl-color-gray-black);
   cursor: auto;

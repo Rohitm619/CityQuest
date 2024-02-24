@@ -21,12 +21,16 @@ function Header() {
             <Link to="/leaderboard" className="home-nav42 bodySmall text-white">
               Leaderboard
             </Link>
-            <Link
-              to="/societyProfile"
-              className="home-nav42 bodySmall text-white"
-            >
-              Profile
-            </Link>
+            {false ? (
+              <Link
+                to="/societyProfile"
+                className="home-nav42 bodySmall text-white"
+              >
+                Profile
+              </Link>
+            ) : (
+              ""
+            )}
             <Link to="/" className="home-nav42 bodySmall text-white">
               Contact
             </Link>

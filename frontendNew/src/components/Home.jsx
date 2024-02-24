@@ -18,7 +18,7 @@ const Home = (props) => {
       </Helmet>
 
       <div className="home-hero relative flex" style={{ height: "70vh" }}>
-        <div className="h-auto flex flex-column my-auto items-center bg-red-200 home-hero1 inline-block z-10">
+        <div className="h-auto w-screen flex flex-column my-auto items-center glassEffect home-hero1 inline-block z-10">
           <h1 className="home-hero-heading heading1 drop-shadow-lg">
             Join the CityQuest
           </h1>
