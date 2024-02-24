@@ -3,11 +3,10 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import Building from "../models/Building";
 import Cars from "../models/cars";
-import  swimmingPool from "../models/swimmingPool";
-import  Grass from "../models/Grass"
+import swimmingPool from "../models/swimmingPool";
+import Grass from "../models/Grass";
 import Sky from "../models/Sky";
 import Temple from "../models/temple";
-
 
 function Model() {
   const [isRotating, setIsRotating] = useState(true);
@@ -44,8 +43,8 @@ function Model() {
 
   const [planeScale, planePosition, planeRotation] = adjustPlaneForScreenSize();
   return (
-    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-screen w-[100%]">
-      <Canvas camera={{ near: 0.1, far: 1000 }} className="h-[95%]">
+    <div className="bg-transparent h-[100%] w-[100%]">
+      <Canvas camera={{ near: 0.1, far: 1000 }} className="">
         <Suspense>
           <directionalLight />
           <ambientLight />
@@ -62,12 +61,14 @@ function Model() {
             scale={planeScale}
           /> */}
           <Grass />
-          <Sky/>
+          <Sky />
           {/* <Temple/> */}
 
           <Building
             isCars={true}
             isBench={true}
+            isParkingLot={true}
+            isSwimmingPool={true}
             isTemple={true}
             isRotating={isRotating}
             isDustbin={true}

@@ -6,8 +6,9 @@ import { useFrame, useThree } from "@react-three/fiber";
 import cars from "../assets/cars.glb";
 import bench from "../assets/bench.glb";
 import parkingLot from "../assets/parking_lot.glb";
-import temple from "../assets/hindu_temple.glb";
 import swimmingPool from "../assets/giant_swimming_pool.glb";
+import cloud from "../assets/cloud_test.glb";
+import temple from "../assets/hindu_temple.glb";
 import grass from "../assets/luna_park_grass_field.glb";
 import dustbin from "../assets/dustbin.glb";
 export function Building({
@@ -17,8 +18,9 @@ export function Building({
   currentFocusPoint,
   isCars,
   isBench,
-  isTemple,
+  isParkingLot,
   isSwimmingPool,
+  isTemple,
   isGrassField,
   isDustbin,
   ...props
@@ -182,6 +184,7 @@ export function Building({
   const {scene: swimmingPoolScene} = useGLTF(swimmingPool);
   const {scene: grassScene} = useGLTF(grass);
   const {scene: dustbinScene} = useGLTF(dustbin);
+  const { scene: cloudScene } = useGLTF(cloud);
 
   return (
     <a.group {...props} ref={islandRef} dispose={null}>
@@ -222,7 +225,7 @@ export function Building({
             rotation={[0, 0, 0]}
             scale={[500, 250, 300]}
           >
-                        <primitive object={dustbinScene.clone()} />
+            <primitive object={dustbinScene.clone()} />
 
           </mesh>
           <mesh
@@ -247,30 +250,44 @@ export function Building({
         ) : (
           ""
         )}
-        
         {true ? (
-            <mesh
-              castShadow
-              receiveShadow
-              position={[2000, 200, -4600]}
-              rotation={[0, 0, 0]}
-              scale={[200, 200, 150]}
-            >
-              <primitive object={templeScene} />
-            </mesh>
+          <mesh
+            castShadow
+            receiveShadow
+            position={[2000, 200, -3000]}
+            rotation={[0, 0, 0]}
+            scale={[120, 120, 150]}
+          >
+            <primitive object={templeScene} />
+          </mesh>
         ) : (
           ""
         )}
- {true ? (
-            <mesh
-              castShadow
-              receiveShadow
-              position={[-1200, 350, -4800]}
-              rotation={[0, 0, 0]}
-              scale={[15, 8, 12]}
-            >
-              <primitive object={swimmingPoolScene} />
-            </mesh>
+
+        {true ? (
+          <mesh
+            castShadow
+            receiveShadow
+            position={[-500, 190, -3000]}
+            rotation={[0, 1.6, 0]}
+            scale={[10, 10, 10]}
+          >
+            <primitive object={swimmingPoolScene} />
+          </mesh>
+        ) : (
+          ""
+        )}
+
+        {true ? (
+          <mesh
+            castShadow
+            receiveShadow
+            position={[-500, 190, -3000]}
+            rotation={[0, 1.6, 0]}
+            scale={[10, 10, 10]}
+          >
+            <primitive object={cloudScene} />
+          </mesh>
         ) : (
           ""
         )}
