@@ -7,7 +7,13 @@ import CardContent from "@mui/joy/CardContent";
 import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
 
-function LeaderboardRankCard({ rank, item, setSelectedSociety }) {
+function LeaderboardRankCard({
+  rank,
+  item,
+  setSelectedSociety,
+  selectedSociety,
+}) {
+  const isSocietySelected = selectedSociety.name === item.name;
   return (
     // <div className="leaderboard-rank1">
     //   <div className="leaderboard-feature-card">
@@ -20,8 +26,13 @@ function LeaderboardRankCard({ rank, item, setSelectedSociety }) {
     //     />
     //   </div>
     // </div>
+
     <Card
-      className="m-auto bg-gradient-to-r from-cyan-500 to-blue-500 border-0 hover:scale-105 transition-all"
+      className={`m-auto bg-gradient-to-r ${
+        isSocietySelected
+          ? `from-cyan-500 to-blue-500`
+          : `from-slate-700 to-slate-900`
+      } border-0 hover:scale-105 transition-all`}
       variant="outlined"
       orientation="horizontal"
       onClick={() => setSelectedSociety(item)}
@@ -34,7 +45,13 @@ function LeaderboardRankCard({ rank, item, setSelectedSociety }) {
         },
       }}
     >
-      <div>{rank}</div>
+      <div
+        className={`${
+          isSocietySelected ? "text-black" : "text-white"
+        } font-bold underline`}
+      >
+        {rank}
+      </div>
       <AspectRatio ratio="1" sx={{ width: 70 }}>
         <img
           src="https://images.unsplash.com/photo-1507833423370-a126b89d394b?auto=format&fit=crop&w=90"
@@ -44,15 +61,15 @@ function LeaderboardRankCard({ rank, item, setSelectedSociety }) {
         />
       </AspectRatio>
       <CardContent>
-        <Typography level="title-lg" id="card-description">
+        <Typography
+          level="title-lg"
+          className={isSocietySelected ? "text-black" : "text-white"}
+          id="card-description"
+        >
           {item.name}
         </Typography>
         <Typography level="body-sm" aria-describedby="card-description">
-          <Link
-            overlay
-            underline="none"
-            sx={{ color: "text.tertiary", marginBottom: 0 }}
-          >
+          <Link overlay underline="none" sx={{ marginBottom: 0 }}>
             {item.address}
           </Link>
         </Typography>
@@ -62,7 +79,7 @@ function LeaderboardRankCard({ rank, item, setSelectedSociety }) {
           size="sm"
           sx={{ pointerEvents: "none" }}
         >
-          Explore more
+          <p className="text-gray-500">Explore more</p>
         </Chip>
       </CardContent>
     </Card>

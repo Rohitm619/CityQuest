@@ -57,6 +57,8 @@ export function Building({
     setIsRotating(false);
   };
 
+  // function which horizontally rotate the model i.e. islandRef continuosly
+
   // Handle pointer (mouse or touch) move event
   const handlePointerMove = (event) => {
     event.stopPropagation();

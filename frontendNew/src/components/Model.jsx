@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import Building from "../models/Building";
@@ -9,9 +9,33 @@ import Sky from "../models/Sky";
 import Temple from "../models/temple";
 import Loader from "./Loader";
 
+var num = 0.001;
+
 function Model({ selectedSociety }) {
   const [isRotating, setIsRotating] = useState(true);
   const [currentStage, setCurrentStage] = useState(1);
+  const buildingRef = useRef();
+
+  function getNumber(number) {
+    return number + 0.001;
+  }
+
+  useEffect(() => {
+    const animate = () => {
+      num = getNumber(num);
+      console.log(num);
+      if (isRotating && buildingRef.current) {
+        console.log("in the block");
+        buildingRef.current.rotation.y += 0.01;
+      }
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {};
+  }, [isRotating, num]);
+
   const adjustBuildingForScreenSize = () => {
     let screenScale;
     let screenPosition = [-10, -10, -30];
@@ -45,6 +69,7 @@ function Model({ selectedSociety }) {
   const [planeScale, planePosition, planeRotation] = adjustPlaneForScreenSize();
 
   const [progress, setProgress] = useState(0);
+
   return (
     <div className="bg-transparent h-[100%] w-[100%]">
       <Canvas camera={{ near: 0.1, far: 1000 }} className="">
@@ -68,6 +93,7 @@ function Model({ selectedSociety }) {
           {/* <Temple/> */}
 
           <Building
+            ref={buildingRef}
             isCars={selectedSociety.isCars}
             isBench={selectedSociety.isBench}
             isParkingLot={true}
@@ -78,7 +104,7 @@ function Model({ selectedSociety }) {
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
             position={islandPosition}
-            rotation={[0.1, 4.7077, 0]}
+            rotation={[0.1, 6.7077, 0]}
             scale={islandScale}
             setProgress={setProgress}
           />

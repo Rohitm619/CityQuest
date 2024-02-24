@@ -10,17 +10,34 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import { auth, googleProvider } from "../firebase/firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import { getUserDetails, insertUserDetails } from "../firebase/firestore";
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
+  const handleSubmit = async function(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    const email = data.get("email");
+    const password = data.get("password");
+    try {
+      const registeredUser = await createUserWithEmailAndPassword(auth, email, password)
+      await insertUserDetails({
+        user_id: registeredUser.user.uid,
+        role: "Chairman"
+      });
+      // store the newly created user with roles as well
+      console.log("New person is registered!");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -49,45 +66,6 @@ export default function SignUp() {
               sx={{ mt: 3 }}
             >
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    autoComplete="given-name"
-                    name="firstName"
-                    required
-                    fullWidth
-                    id="firstName"
-                    label="First Name"
-                    autoFocus
-                    color="secondary"
-                    style={{
-                      backgroundColor: "#0074f0",
-                    }}
-                    InputProps={{
-                      style: {
-                        color: "black",
-                      },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    fullWidth
-                    id="lastName"
-                    label="Last Name"
-                    name="lastName"
-                    autoComplete="family-name"
-                    color="secondary"
-                    style={{
-                      backgroundColor: "#0074f0",
-                    }}
-                    InputProps={{
-                      style: {
-                        color: "black",
-                      },
-                    }}
-                  />
-                </Grid>
                 <Grid item xs={12}>
                   <TextField
                     required
