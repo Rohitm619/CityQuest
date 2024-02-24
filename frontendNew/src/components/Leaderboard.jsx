@@ -38,6 +38,14 @@ const societies = [
     isSwimmingPool: false,
     isBench: true,
   },
+  {
+    name: "Blue Ridge",
+    address: "Pune, Maharashtra, India",
+    isCars: false,
+    isTemple: true,
+    isSwimmingPool: false,
+    isBench: true,
+  },
 ];
 
 const Leaderboard = (props) => {
@@ -66,7 +74,7 @@ const Leaderboard = (props) => {
         <div className="w-[72%] h-[85vh] bg-green-200">
           <Model selectedSociety={selectedSociety} />
         </div>
-        <div className="w-[28%] bg-[var(--dl-color-custom-neutral-dark)] gap-2 flex flex-column overflow-scroll h-[85vh]">
+        <div className="w-[28%] bg-[var(--dl-color-custom-neutral-dark)] gap-2 flex flex-column overflow-scroll hideScrollbar h-[85vh]">
           <div className="text-center w-inline text-2xl text-white m-3 py-2 rounded">
             <h3>Leaderboard Ranking</h3>
           </div>

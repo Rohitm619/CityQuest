@@ -16,6 +16,9 @@ function Header() {
             <Link to="/leaderboard" className="home-nav42 bodySmall">
               Leaderboard
             </Link>
+            <Link to="/societyProfile" className="home-nav42 bodySmall">
+              Profile
+            </Link>
             <a className="home-nav52 bodySmall">Contact</a>
           </nav>
           <input type="text" placeholder="Search" className="input" />

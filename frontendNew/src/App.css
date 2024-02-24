@@ -1378,3 +1378,7 @@
   height: 100%;
   display: flex;
 }
+
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
