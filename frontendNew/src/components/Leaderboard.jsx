@@ -70,7 +70,10 @@ const Leaderboard = (props) => {
       <div className="leaderboard-header"></div>
       <div className="leaderboard-leaderboard flex text-black h-[85vh]">
         <div className="w-[72%] h-[85vh] rotationContainer">
-          <div className="mesh h-[100%]">
+          <div className="mesh h-[100%] relative">
+            <div className="absolute z-10 font-bold drop-shadow-md w-[100%] text-right px-[4vw] py-[2vw]">
+              <h1 className="text-5xl">{selectedSociety.name}</h1>
+            </div>
             <Model selectedSociety={selectedSociety} />
           </div>
         </div>

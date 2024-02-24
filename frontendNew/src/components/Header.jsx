@@ -14,14 +14,22 @@ function Header() {
             <Link to="/" className="home-nav12 bodySmall text-white">
               Home
             </Link>
-            <a className="home-nav32 bodySmall">CityQuest Activities</a>
-            <Link to="/leaderboard" className="home-nav42 bodySmall">
+
+            <Link to="/" className="home-nav42 bodySmall text-white">
+              CityQuest Activities
+            </Link>
+            <Link to="/leaderboard" className="home-nav42 bodySmall text-white">
               Leaderboard
             </Link>
-            <Link to="/societyProfile" className="home-nav42 bodySmall">
+            <Link
+              to="/societyProfile"
+              className="home-nav42 bodySmall text-white"
+            >
               Profile
             </Link>
-            <a className="home-nav52 bodySmall">Contact</a>
+            <Link to="/" className="home-nav42 bodySmall text-white">
+              Contact
+            </Link>
           </nav>
           <input type="text" placeholder="Search" className="input" />
           <div className="home-buttons">

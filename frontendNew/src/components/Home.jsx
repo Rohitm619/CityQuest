@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import FeatureCard from "./FeatureCard";
 import Question1 from "./Question";
 import Header from "./Header";
+import Model from "./Model";
 
 const Home = (props) => {
   return (
@@ -16,14 +17,18 @@ const Home = (props) => {
         <meta property="og:title" content="Regular Immaterial Pheasant" />
       </Helmet>
 
-      <div className="home-hero">
-        <div className="heroContainer home-hero1">
-          <h1 className="home-hero-heading heading1">Join the CityQuest</h1>
-          <div className="home-container1">
+      <div className="home-hero relative flex" style={{ height: "70vh" }}>
+        <div className="h-auto flex flex-column my-auto items-center bg-red-200 home-hero1 inline-block z-10">
+          <h1 className="home-hero-heading heading1 drop-shadow-lg">
+            Join the CityQuest
+          </h1>
+          <div className="home-container1 ">
             <span className="home-hero-sub-heading bodyLarge">
               <span>
                 <span>
-                  <span>Empowering Communities for a Better Tomorrow</span>
+                  <span className="drop-shadow-md">
+                    Empowering Communities for a Better Tomorrow
+                  </span>
                   <span>
                     <span
                       dangerouslySetInnerHTML={{
@@ -85,10 +90,24 @@ const Home = (props) => {
               </span>
             </span>
             <div className="home-btn-group">
-              <button className="buttonFilled">Get Started</button>
+              <Link to="/signup" className="buttonFilled">
+                Register Now
+              </Link>
               <button className="buttonFlat">Learn More →</button>
             </div>
           </div>
+        </div>
+        <div className="absolute w-screen h-[100%]">
+          <Model
+            selectedSociety={{
+              name: "Pune Ville",
+              address: "Pune, Maharashtra, India",
+              isCars: true,
+              isTemple: false,
+              isSwimmingPool: true,
+              isBench: true,
+            }}
+          />
         </div>
       </div>
       <div className="home-features">
@@ -316,18 +335,21 @@ const Home = (props) => {
           <div className="home-container6">
             <span className="logo">CITYQUEST</span>
             <nav className="home-nav">
-              <a to="/" className="home-nav121 bodySmall">
+              <Link to="/" className="home-nav12 bodySmall text-white">
                 Home
-              </a>
-              <span className="home-nav321 bodySmall">
+              </Link>
+              <Link to="/" className="home-nav42 bodySmall text-white">
                 CityQuest Activities
-              </span>
-              <a to="/leaderboard" className="home-nav421 bodySmall">
+              </Link>
+              <Link
+                to="/leaderboard"
+                className="home-nav42 bodySmall text-white"
+              >
                 Leaderboard
-              </a>
-              <a to="/contact" className="home-nav521 bodySmall">
+              </Link>
+              <Link to="/" className="home-nav42 bodySmall text-white">
                 Contact
-              </a>
+              </Link>
             </nav>
           </div>
           <div className="home-separator"></div>
