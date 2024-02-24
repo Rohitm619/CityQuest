@@ -1,5 +1,11 @@
 * {
   box-sizing: border-box;
+  color: white;
+}
+body {
+  color: white;
+}
+.labelClass{
   color: black;
 }
 input[type="text"],
@@ -8,14 +14,14 @@ select,
 textarea {
   width: 100%;
   padding: 12px;
-  border: 0.5px solid black;
+  border: 0.5px solid white;
   border-radius: 4px;
   resize: vertical;
-  background-color: white;
+  background-color: black;
 }
 input[type="checkbox"] {
   padding: 12px;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 4px;
   resize: vertical;
 }
@@ -26,8 +32,8 @@ label {
 }
 
 input[type="submit"] {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   padding: 12px 20px;
   margin-left: 10px;
   border: none;
@@ -40,7 +46,11 @@ input[type=submit]:hover {
   background-color: #45a049;
 } */
 
-
+.container {
+  border-radius: 5px;
+  background-color: #525452;
+  padding: 20px;
+}
 
 .col-25 {
   float: left;

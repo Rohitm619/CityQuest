@@ -23,8 +23,8 @@ const Profile = () => {
         <h1 className="heading">Society Profile</h1>
         <form onSubmit={handleSubmit}>
           <div className="row" style={{ display: currentPage === 1 ? 'block' : 'none' }}>
-            <div className="col-25 left">
-              <label htmlFor="Societyname">Society Name</label>
+            <div className="col-25">
+              <label className="labelClass" htmlFor="Societyname">Society Name</label>
             </div>
             <div className="col-75">
               <input type="text" id="Societyname" name="Societyname" placeholder="Society Name.." maxLength="20" />
@@ -32,7 +32,7 @@ const Profile = () => {
           </div>
           <div className="row" style={{ display: currentPage === 1 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="ChairpersonName">Chairperson Name</label>
+            <label className="labelClass" for="ChairpersonName">Chairperson Name</label>
           </div>
           <div className="col-75">
             <input
@@ -46,7 +46,7 @@ const Profile = () => {
           
           <div className="row" style={{ display: currentPage === 1 ? 'block' : 'none' }}>
             <div className="col-25">
-              <label htmlFor="Address">Address</label>
+              <label className="labelClass" htmlFor="Address">Address</label>
             </div>
             <div className="col-75">
               <input type="text" id="Address" name="Address" placeholder="Address.." maxLength="20" />
@@ -54,7 +54,7 @@ const Profile = () => {
           </div>
           <div className="row" style={{ display: currentPage === 1 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="PinCode">Pin Code</label>
+            <label className="labelClass" for="PinCode">Pin Code</label>
           </div>
           <div className="col-75">
             <input
@@ -67,7 +67,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 1 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="Noofflats">Number of flats</label>
+            <label className="labelClass" for="Noofflats">Number of flats</label>
           </div>
           <div className="col-75">
             <input
@@ -80,7 +80,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 1 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="Age">Age</label>
+            <label className="labelClass" for="Age">Age</label>
           </div>
           <div className="col-75">
             <input type="number" id="Age" name="Age" placeholder="Age.." />
@@ -88,7 +88,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 1 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="lparcel">Land parcel (in acres)</label>
+            <label className="labelClass" for="lparcel">Land parcel (in acres)</label>
           </div>
           <div className="col-75">
             <input
@@ -101,7 +101,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 1 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="4parking">Parking – 4 wheelers</label>
+            <label className="labelClass" for="4parking">Parking – 4 wheelers</label>
           </div>
           <div className="col-75">
             <input
@@ -114,7 +114,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 2 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="2parking">Parking – 2 wheelers</label>
+            <label className="labelClass" for="2parking">Parking – 2 wheelers</label>
           </div>
           <div className="col-75">
             <input
@@ -127,7 +127,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 2 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="Dustbins">Dustbins</label>
+            <label  className="labelClass" for="Dustbins">Dustbins</label>
           </div>
           <div className="col-75">
             <input
@@ -140,7 +140,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 2 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="cctv">CCTVs</label>
+            <label className="labelClass" for="cctv">CCTVs</label>
           </div>
           <div className="col-75">
             <input
@@ -154,7 +154,7 @@ const Profile = () => {
 
         <div className="row" style={{ display: currentPage === 2 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="Gym">Gym</label>
+            <label className="labelClass" for="Gym">Gym</label>
           </div>
           <div className="col-75">
             <select id="Gym" name="Gym">
@@ -167,7 +167,7 @@ const Profile = () => {
         </div>
         <div className="row"style={{ display: currentPage === 2 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="clubHouse">Club House</label>
+            <label className="labelClass" for="clubHouse">Club House</label>
           </div>
           <div className="col-75">
             <select id="clubHouse" name="clubHouse">
@@ -180,7 +180,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 2 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="Kidsplayarea">Kids Play Area</label>
+            <label className="labelClass" for="Kidsplayarea">Kids Play Area</label>
           </div>
           <div className="col-75">
             <select id="Kidsplayarea" name="Kidsplayarea">
@@ -193,7 +193,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 2 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="SwimmingPool">Swimming Pool </label>
+            <label className="labelClass" for="SwimmingPool">Swimming Pool </label>
           </div>
           <div className="col-75">
             <select id="SwimmingPool" name="SwimmingPool">
@@ -206,7 +206,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 2 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="securitysystem">Security System</label>
+            <label className="labelClass" for="securitysystem">Security System</label>
           </div>
           <div className="col-75">
             <select id="securitysystem" name="securitysystem">
@@ -219,7 +219,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 3 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="powerbackup">Power Backup</label>
+            <label className="labelClass" for="powerbackup">Power Backup</label>
           </div>
           <div className="col-75">
             <select id="powerbackup" name="powerbackup">
@@ -232,7 +232,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 3 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="temple">Temple</label>
+            <label className="labelClass" for="temple">Temple</label>
           </div>
           <div className="col-75">
             <select id="temple" name="temple">
@@ -245,7 +245,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 3 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="seniorcitizensitouts">Senior Citizen Sit Outs</label>
+            <label className="labelClass" for="seniorcitizensitouts">Senior Citizen Sit Outs</label>
           </div>
           <div className="col-75">
             <select id="seniorcitizensitouts" name="seniorcitizensitouts">
@@ -258,7 +258,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 3 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="greenspaces">Green Spaces</label>
+            <label className="labelClass" for="greenspaces">Green Spaces</label>
           </div>
           <div className="col-75">
             <select id="greenspaces" name="greenspaces">
@@ -271,7 +271,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 3 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="wasteSegregation ">Waste Segregation</label>
+            <label className="labelClass" for="wasteSegregation ">Waste Segregation</label>
           </div>
           <div className="col-75">
             <select id="wasteSegregation" name="wasteSegregation">
@@ -284,7 +284,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 3 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="cleanliness">cleanliness</label>
+            <label className="labelClass" for="cleanliness">cleanliness</label>
           </div>
           <div className="col-75">
             <select id="cleanliness" name="cleanliness">
@@ -297,7 +297,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 3 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="SmokeDetector">Smoke Detector</label>
+            <label className="labelClass" for="SmokeDetector">Smoke Detector</label>
           </div>
           <div className="col-75">
             <select id="SmokeDetector" name="SmokeDetector">
@@ -310,7 +310,7 @@ const Profile = () => {
         </div>
         <div className="row" style={{ display: currentPage === 3 ? 'block' : 'none' }}>
           <div className="col-25">
-            <label for="FireDuct">Fire Duct</label>
+            <label className="labelClass" for="FireDuct">Fire Duct</label>
           </div>
           <div className="col-75">
             <select id="FireDuct" name="FireDuct">
