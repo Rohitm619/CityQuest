@@ -1,8 +1,6 @@
 import React from "react";
 
 import PropTypes from "prop-types";
-import "../App.css";
-import "./feature-card.css";
 
 const FeatureCard = (props) => {
   return (
