@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import hindu_temple from "../assets/hindu_temple.glb";
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF("/hindu_temple.glb");
+export default function Temple(props) {
+  const { nodes, materials } = useGLTF(hindu_temple);
   return (
     <group {...props} dispose={null}>
-      <group scale={10.216}>
+      <group scale={0.01}>
         <mesh
           castShadow
           receiveShadow
@@ -280,4 +281,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/hindu_temple.glb");
+useGLTF.preload(hindu_temple);

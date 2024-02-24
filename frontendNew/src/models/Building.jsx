@@ -6,6 +6,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import cars from "../assets/cars.glb";
 import bench from "../assets/bench.glb";
 import parkingLot from "../assets/parking_lot.glb";
+import temple from "../assets/hindu_temple.glb";
 
 export function Building({
   isRotating,
@@ -14,6 +15,7 @@ export function Building({
   currentFocusPoint,
   isCars,
   isBench,
+  isTemple,
   ...props
 }) {
   const { nodes, materials } = useGLTF(residentialComplex);
@@ -171,6 +173,7 @@ export function Building({
   const { scene: carScene } = useGLTF(cars);
   const { scene: benchScene } = useGLTF(bench);
   const { scene: parkingLotScene } = useGLTF(parkingLot);
+  const {scene: templeScene} = useGLTF(temple);
   return (
     <a.group {...props} ref={islandRef} dispose={null}>
       <group scale={0.01}>
@@ -198,6 +201,20 @@ export function Building({
           >
             <primitive object={parkingLotScene} />
           </mesh>
+        ) : (
+          ""
+        )}
+        
+        {true ? (
+            <mesh
+              castShadow
+              receiveShadow
+              position={[2000, 200, -3000]}
+              rotation={[0, 0, 0]}
+              scale={[120, 120, 150]}
+            >
+              <primitive object={templeScene} />
+            </mesh>
         ) : (
           ""
         )}
