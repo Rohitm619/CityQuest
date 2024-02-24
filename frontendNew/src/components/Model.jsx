@@ -7,6 +7,7 @@ import swimmingPool from "../models/swimmingPool";
 import Grass from "../models/Grass";
 import Sky from "../models/Sky";
 import Temple from "../models/temple";
+import Loader from "./Loader";
 
 function Model({ selectedSociety }) {
   const [isRotating, setIsRotating] = useState(true);
@@ -42,10 +43,12 @@ function Model({ selectedSociety }) {
     adjustBuildingForScreenSize();
 
   const [planeScale, planePosition, planeRotation] = adjustPlaneForScreenSize();
+
+  const [progress, setProgress] = useState(0);
   return (
     <div className="bg-transparent h-[100%] w-[100%]">
       <Canvas camera={{ near: 0.1, far: 1000 }} className="">
-        <Suspense>
+        <Suspense fallback={<Loader progress={progress} />}>
           <directionalLight />
           <ambientLight />
           <pointLight />
@@ -77,6 +80,7 @@ function Model({ selectedSociety }) {
             position={islandPosition}
             rotation={[0.1, 4.7077, 0]}
             scale={islandScale}
+            setProgress={setProgress}
           />
         </Suspense>
       </Canvas>

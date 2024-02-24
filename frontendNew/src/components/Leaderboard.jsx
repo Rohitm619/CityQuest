@@ -63,7 +63,7 @@ const Leaderboard = (props) => {
         <Header />
       </div>
       <div className="leaderboard-leaderboard flex text-black h-[85vh]">
-        <div className="w-[72%] h-[85vh] bg-green-200">
+        <div className="w-[72%] h-[85vh]">
           <Model selectedSociety={selectedSociety} />
         </div>
         <div className="w-[28%] bg-[var(--dl-color-custom-neutral-dark)] gap-2 flex flex-column overflow-scroll h-[85vh]">
